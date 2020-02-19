@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "../fonts/open_sansregular";
+  src: url("../fonts/OpenSans-Regular-webfont.eot");
+  src: url("../fonts/OpenSans-Regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/OpenSans-Regular-webfont.woff") format("woff"),
+    url("../fonts/OpenSans-Regular-webfont.ttf") format("truetype"),
+    url("../fonts/OpenSans-Regular-webfont.svg#open_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: image-set(
+    url("../image/platzi-video.png") 1x,
+    url("../image/platzi-video-2x.png") 2x,
+    url("../image/platzi-video-3x.png") 300dpi
+  );
+  /* background: color(red alpha(50%)); */
+  /* background: hwb(240, 8%, 45%, 1); */
+  background: gray(50);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 40px;
+  /* font-family: "open_sansregular", "Lato", system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans,
+    Helvetica Neue; */
+  font-family: Lato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-shadow: 1px 1px 1px black;
+  color: white;
+  animation: 5s latido2 infinite forwards ease-in;
+  @media (--small) {
+    background: blue;
+  }
+}
+
+.style {
+}
+
+/* .btn {
+  @apply --button;
+} */
+
+@keyframes latido {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  /* 100% {
+    transform: scale(1.1);
+  } */
+}
+
+@custom-selector :--checkeable .sass, .less, .stylus;
+@custom-selector :--highlight :hover, :active;
+
+:--checkeable {
+  background: red;
+}
+
+:--checkeable:--highlight {
+  background: blue;
+}
+
+ul li :any-link {
+  color: red;
+}
+/*matches and not*/
+ul li:matches(:last-child, :nth-of-type(3), :first-child) {
+  color: color(peru l(20%));
+}
+@import "./postcss.css";
+
+.stylus {
+  background: black;
+  color: white !important;
+  &:hover {
+    background: violet;
+  }
+}
